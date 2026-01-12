@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客户管理 - 理发预约系统</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>💈 理发预约系统</h1>
+        <div class="nav-links">
+            <a href="index.html">仪表板</a>
+            <a href="customers.html" class="active">客户管理</a>
+            <a href="appointments.html">预约管理</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>客户列表</h2>
+            <button class="btn btn-primary" onclick="openCustomerModal()">➕ 添加客户</button>
+            <div id="customersTable" style="margin-top: 1rem;">
+                <p>加载中...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加/编辑客户模态框 -->
+    <div id="customerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">添加客户</h2>
+                <button class="modal-close" onclick="closeCustomerModal()">&times;</button>
+            </div>
+            <form id="customerForm" onsubmit="saveCustomer(event)">
+                <input type="hidden" id="customerId">
+                <div class="form-group">
+                    <label for="customerName">姓名 *</label>
+                    <input type="text" id="customerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">电话 *</label>
+                    <input type="tel" id="customerPhone" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" onclick="closeCustomerModal()">取消</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/customers.js"></script>
+</body>
+</html>

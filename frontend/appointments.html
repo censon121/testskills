@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预约管理 - 理发预约系统</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>💈 理发预约系统</h1>
+        <div class="nav-links">
+            <a href="index.html">仪表板</a>
+            <a href="customers.html">客户管理</a>
+            <a href="appointments.html" class="active">预约管理</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>预约列表</h2>
+            <button class="btn btn-primary" onclick="openAppointmentModal()">➕ 创建预约</button>
+            <div id="appointmentsTable" style="margin-top: 1rem;">
+                <p>加载中...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加/编辑预约模态框 -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="appointmentModalTitle">创建预约</h2>
+                <button class="modal-close" onclick="closeAppointmentModal()">&times;</button>
+            </div>
+            <form id="appointmentForm" onsubmit="saveAppointment(event)">
+                <input type="hidden" id="appointmentId">
+                <div class="form-group">
+                    <label for="appointmentCustomer">客户 *</label>
+                    <select id="appointmentCustomer" required>
+                        <option value="">请选择客户</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentDate">日期 *</label>
+                    <input type="date" id="appointmentDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentTime">时间 *</label>
+                    <input type="time" id="appointmentTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentNotes">备注</label>
+                    <textarea id="appointmentNotes" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="appointmentStatus">状态</label>
+                    <select id="appointmentStatus">
+                        <option value="pending">待处理</option>
+                        <option value="confirmed">已确认</option>
+                        <option value="completed">已完成</option>
+                        <option value="cancelled">已取消</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" onclick="closeAppointmentModal()">取消</button>
+                    <button type="submit" class="btn btn-primary">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/appointments.js"></script>
+</body>
+</html>
