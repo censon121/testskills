@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理发预约系统 - 仪表板</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>💈 理发预约系统</h1>
+        <div class="nav-links">
+            <a href="index.html" class="active">仪表板</a>
+            <a href="customers.html">客户管理</a>
+            <a href="appointments.html">预约管理</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3 id="totalCustomers">-</h3>
+                <p>总客户数</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="totalAppointments">-</h3>
+                <p>总预约数</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="todayAppointments">-</h3>
+                <p>今日预约</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="pendingAppointments">-</h3>
+                <p>待处理预约</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📅 今日预约</h2>
+            <div id="todayAppointmentsList">
+                <p>加载中...</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>⏰ 最近预约</h2>
+            <div id="recentAppointmentsList">
+                <p>加载中...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
