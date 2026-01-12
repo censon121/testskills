@@ -2,7 +2,10 @@
 .vscode/
 node_modules/
 __pycache__/
+*.pyc
+*.db
 .env
+.venv/
 *.log
 /dist
 /build

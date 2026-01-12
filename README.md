@@ -1,15 +1,12 @@
-# testskills
+# 理发预约系统
 
-这是一个名为 testskills 的示例项目，初始化提交由 GPT 助手创建。
+简单的 FastAPI + SQLite 理发预约学习项目。
 
-## 说明
-- 项目目的：示例/占位
+## 启动
 
-## 结构
-- README.md - 项目说明
-- .gitignore - 忽略规则
-- LICENSE - 许可文件
+```bash
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
 
-## 使用
-1. 克隆或在本地工作目录中打开。
-2. 根据需要添加代码与文件。
+访问 http://localhost:8000/docs 查看 API 文档。
