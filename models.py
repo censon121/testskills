@@ -13,6 +13,15 @@ class Customer(Base):
 
     appointments = relationship("Appointment", back_populates="customer")
 
+example Review(Base):
+    __tablename__ ="reviews"
+
+    id = Column(Integer, primary_key=True, index=True)
+    appointment_id = Column(Integer, ForeignKey("appointments.id"), nullable=False)
+    rating = Column(Integer, nullable=False)
+    comment = Column(String, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
 class User(Base):
     __tablename__ = "users"
 
