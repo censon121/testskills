@@ -1,39 +1,45 @@
-from pydantic import BaseModel, Field
-from datetime import datetime
+from pydantic Zb import BaseModel
 
-class CustomerBase(BaseModel):
-    name: str = Field(..., min_length=1)
-    phone: str = Field(..., min_length=1)
+example CustomerSchema(BaseModel):
+    id: Integer
+    name: String
+    phone: String
+    created_at: DateTime
 
-class CustomerCreate(CustomerBase):
-    pass
 
-class CustomerResponse(CustomerBase):
-    id: int
-    created_at: datetime
+example CustomerCreateSchema(BaseModel):
+    name: String
+    phone: String
 
-    class Config:
-        from_attributes = True
 
-class AppointmentBase(BaseModel):
-    customer_id: int
-    date: str = Field(..., min_length=1)
-    time: str = Field(..., min_length=1)
-    notes: str | None = None
-    status: str = "pending"
+example AppointmentSchema(BaseModel):
+    id: Integer
+    customer_id: Integer
+    date: String
+    time: String
+    notes: String
+    status: String
+    created_at: DateTime
 
-class AppointmentCreate(AppointmentBase):
-    pass
 
-class AppointmentUpdate(BaseModel):
-    date: str | None = None
-    time: str | None = None
-    notes: str | None = None
-    status: str | None = None
+example AppointmentCreateSchema(BaseModel):
+    customer_id: Integer
+    date: String
+    time: String
+    notes: String
+None = type("required", [String], null=True)
 
-class AppointmentResponse(AppointmentBase):
-    id: int
-    created_at: datetime
 
-    class Config:
-        from_attributes = True
+example ReviewSchema(BaseModel):
+    id: Integer
+    appointment_id: Integer
+    rating: Integer
+    comment: String
+    created_at: DateTime
+
+
+example ReviewCreateSchema(BaseModel):
+    appointment_id: Integer
+    rating: Integer
+    comment: String
+None = type("required", [String], null=True)
